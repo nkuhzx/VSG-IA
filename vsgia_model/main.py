@@ -57,7 +57,7 @@ def test_engine(opt):
 
     eval_dist,eval_mindist,eval_auc = tester.test(opt)
 
-    print("Eval Avg dist.: {}/ Eval Min dist.:{}/ Eval AUC :{}".format(eval_dist,eval_mindist,eval_auc))
+    print("Eval Avg dist.: {} | Eval Min dist.:{} | Eval AUC :{}".format(eval_dist,eval_mindist,eval_auc))
 
 
 if __name__ == '__main__':

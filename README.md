@@ -10,8 +10,6 @@ The current repository has released the test code and pre-processed data on the 
 
 The complete code will be released as soon as possible.
 
-TODO List
-
 - [x] Evaluation code on GazeFollow
 - [ ] Pre-process code
 - [ ] Training code
@@ -80,6 +78,8 @@ python main.py --gpu --is_test (use gpu)
 cd vsgia_model
 python main.py --is_test (only use cpu)
 ```
+
+After the evaluation process, the program will reports the Average Distance, Minimum Distance and AUC.
 
 ## Acknowledgement
 We thank the reviewers for their constructive suggestions.
