@@ -34,7 +34,13 @@ sh download_weight.sh
 
 4.OPTIONAL SETTINGS
 
-You can download the [dataset](https://drive.google.com/file/d/1Kf93_TfEDdQaeIP3gaxh0DkdP-_zmEu-/view?usp=sharing) and [model weights](https://drive.google.com/file/d/14Mko5h5nb0NPtIr8q6TzfLzySeijZSG-/view?usp=sharing) to your computer manually,
+1)We provide a conda environment.yml file and you can re-create the environment we used.
+
+```bash
+conda env create -f environment.yml
+```
+
+2)You can download the [dataset](https://drive.google.com/file/d/1Kf93_TfEDdQaeIP3gaxh0DkdP-_zmEu-/view?usp=sharing) and [model weights](https://drive.google.com/file/d/14Mko5h5nb0NPtIr8q6TzfLzySeijZSG-/view?usp=sharing) to your computer manually,
 then you need to unzip dataset.zip in the root directory and create a folder 'modelparas'. The folder 'modelparas' need to contain the model_gazefollow.pt file.
 
 A required structure is :
