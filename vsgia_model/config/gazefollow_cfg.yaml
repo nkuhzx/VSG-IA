@@ -1,0 +1,17 @@
+DATASET:
+
+  test_batch_size: 64
+
+MODEL:
+  inout_branch: False
+
+VSGAT:
+
+  diff_edge: True
+
+
+OTHER:
+
+  lossrec_every: 100
+
+  evalrec_every: 600
