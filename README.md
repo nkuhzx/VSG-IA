@@ -56,6 +56,21 @@ A required structure is :
         │   │   └── test_graph_data.hdf5
         │   ├── gazefollow_masks/
         │   │   └── test_masks/
+        │   ├── gazefollow_annotation/
+        │   │   ├── test_annotation.txt
+        │   │   └── train_annotation.txt       
+        │   ├── videotargetattention/
+        │   │   ├── annotations/
+        │   │   └── images/
+        │   │   ├── test_annotation.txt
+        │   │   └── train_annotation.txt       
+        │   ├── videotargetattention_graphinfo/
+        │   │   └── test_graph_data.hdf5
+        │   ├── videotargetattention_masks/
+        │   │   └── test_masks/
+        │   ├── videotargetattention_annotation/
+        │   │   ├── test_annotation.txt
+        │   │   └── train_annotation.txt 
         ├── modelparas/
         │   └── model_gazefollow.gt
         ├── vsgia_model/

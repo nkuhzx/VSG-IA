@@ -37,7 +37,7 @@ def init_model(opt):
     # model.heatmap_decoder.apply(weights_init)
 
     if opt.MODEL.inout_branch:
-        model.inout_branch.apply(weights_init)
+        model.inout_decoder.apply(weights_init)
 
 
     model=model.to(opt.OTHER.device)

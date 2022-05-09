@@ -93,7 +93,7 @@ class VSGIANet(nn.Module):
 
         if self.inout_branch:
 
-            inout=self.inout_decoder()
+            inout=self.inout_decoder(global_memory)
         else:
             inout=None
 

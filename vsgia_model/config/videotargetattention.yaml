@@ -1,0 +1,25 @@
+DATASET:
+
+  root_dir: "../datasets/videoattentiontarget/images"
+  train_anno: "../datasets/videoattentiontarget_annotations/vat_train_annotation.txt"
+  test_anno: "../datasets/videoattentiontarget_annotations/vat_test_annotation.txt"
+
+  mask_dir: "../datasets/videotargetattention_masks"
+
+  train_graph : "../datasets/videotargetattention_graphinfo/test_graph_data_vat.hdf5"
+  test_graph: "../datasets/videotargetattention_graphinfo/test_graph_data_vat.hdf5"
+VSGAT:
+
+  diff_edge: True
+
+MODEL:
+  inout_branch: True
+
+TEST:
+  model_para: "../modelparas/vsgia_0epoch.pth.tar"
+
+OTHER:
+
+  lossrec_every: 100
+
+  evalrec_every: 600
