@@ -10,29 +10,33 @@ The current repository has released the test code and pre-processed data on the 
 
 The complete code will be released as soon as possible.
 
-- [x] Evaluation code on GazeFollow
+- [x] Evaluation code on GazeFollow/VideoTargetAttention datasets
 - [ ] Pre-process code
 - [ ] Training code
 
 
 # Instruction
-1.Clone our repo
+1.Clone our repo and make directory dataset.
 
 ```bash
 git clone https://github.com/nkuhzx/VSG-IA
+cd VSG-IA
+mkdir datasets
 ```
 
-2.Download the GazeFollow dataset with the pre-processed data
+2.Download the GazeFollow/VideoTargetAttention dataset refer to [ejcgt's work](https://github.com/ejcgt/attention-target-detection) and download them to datasets directory.
 ```bash
-sh download_dataset.sh
+sh download_preprocess.sh
 ```
 
-3.Download the model weight
+3.Download the preprocess file for test
+
+4.Download the model weight for test
 ```bash
 sh download_weight.sh
 ```
 
-4.OPTIONAL SETTINGS
+5.OPTIONAL SETTINGS
 
 1)We provide a conda environment.yml file and you can re-create the environment we used.
 
@@ -49,9 +53,8 @@ A required structure is :
         ├── datasets/
         │   ├── gazefollow/
         │   │   ├── test/
-        │   │   └── train/
-        │   │   ├── test_annotation.txt
-        │   │   └── train_annotation.txt       
+        │   │   ├── train/
+        │   │   └── ...     
         │   ├── gazefollow_graphinfo/
         │   │   └── test_graph_data.hdf5
         │   ├── gazefollow_masks/
@@ -61,40 +64,45 @@ A required structure is :
         │   │   └── train_annotation.txt       
         │   ├── videotargetattention/
         │   │   ├── annotations/
-        │   │   └── images/
-        │   │   ├── test_annotation.txt
-        │   │   └── train_annotation.txt       
+        │   │   ├── images/
+        │   │   └── ...     
         │   ├── videotargetattention_graphinfo/
-        │   │   └── test_graph_data.hdf5
+        │   │   └── test_graph_data_vat.hdf5
         │   ├── videotargetattention_masks/
-        │   │   └── test_masks/
+        │   │   ├── CBS This Morning/
+        │   │   └── ...    
         │   ├── videotargetattention_annotation/
         │   │   ├── test_annotation.txt
         │   │   └── train_annotation.txt 
         ├── modelparas/
+        │   ├── model_videotargetattention.txt
         │   └── model_gazefollow.gt
         ├── vsgia_model/
         │   ├── config/
-        │   └── dataset/
+        │   ├── dataset/
         │   ├── models/
-        │   └── utils/        
+        │   ├── utils/        
         │   ├── main.py
-        │   └── tester.py
+        │   ├── tester.py
+        │   ├── main_vat.py
+        │   ├── tester_vat.py
         │   └── __init__.py
         ├── download_dataset.sh
         ├── download_weight.sh
         ├── environment.yaml
         └── README.md
         
-5.Evaluation
+#Evaluation
 
-1).use gpu
+## Evaluation on GazeFollow dataset
+
+1.use gpu
 ```bash
 cd vsgia_model
 python main.py --gpu --is_test (use gpu)
 ```
 
-2).only use cpu
+2.only use cpu
 ```bash
 cd vsgia_model
 python main.py --is_test (only use cpu)
@@ -102,8 +110,20 @@ python main.py --is_test (only use cpu)
 
 After the evaluation process, the program will reports the Average Distance, Minimum Distance and AUC.
 
+## Evaluation on VideoTargetAttention dataset
+```bash
+cd vsgia_model
+python main_vat.py --gpu --is_test (use gpu)
+```
+
+2.only use cpu
+```bash
+cd vsgia_model
+python main_vat.py --is_test (only use cpu)
+```
+
 ## Acknowledgement
-We thank the reviewers for their constructive suggestions.
+We thank the associate editors and reviewers for their constructive suggestions.
 
 
 

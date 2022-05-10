@@ -2,6 +2,10 @@ import torch
 import torch.backends.cudnn as cudnn
 import argparse
 import os
+import sys
+
+sys.path.append(os.path.abspath(os.path.join(os.getcwd(),"..")))
+
 import shutil
 import sys
 import random
@@ -40,7 +44,7 @@ def test_engine(opt):
     # load the model weights
     if os.path.isfile(opt.TEST.model_para):
 
-            gazemodel.load_state_dict(torch.load(opt.TEST.model_para)['state_dict'])
+        gazemodel.load_state_dict(torch.load(opt.TEST.model_para))
 
     else:
         raise Exception("No such model file")
@@ -54,9 +58,11 @@ def test_engine(opt):
 
     # no require grad
     with torch.no_grad():
-        eval_dist,mindist_avg = tester.test(0,opt)
+        eval_dist,eval_auc,eval_ap = tester.test(0,opt)
 
-    print(eval_dist,mindist_avg)
+
+    print("Eval L2 dist.: {} | Eval AUC.:{} | Eval AP :{}".format(eval_dist,eval_auc,eval_ap))
+
 
 if __name__ == '__main__':
 
@@ -74,19 +80,19 @@ if __name__ == '__main__':
     parser.add_argument(
         "--gpu",
         action="store_true",
-        default=True,
+        default=False,
         help="choose if use gpus"
     )
     parser.add_argument(
         "--is_train",
         action="store_true",
-        default=True,
+        default=False,
         help="choose if train"
     )
     parser.add_argument(
         "--is_test",
         action="store_true",
-        default=False,
+        default=True,
         help="choose if test"
     )
     parser.add_argument(
@@ -102,9 +108,7 @@ if __name__ == '__main__':
     cfg.merge_from_file(args.cfg)
     cfg.merge_from_list(args.opts)
 
-    # cfg.DATASET.root_dir=os.path.abspath(cfg.DATASET.root_dir)
     cfg.OTHER.device='cuda:0' if (torch.cuda.is_available() and args.gpu) else 'cpu'
-    # cfg.merge_from_list([{'gpu':args.gpu}])
     print("The model running on {}".format(cfg.OTHER.device))
 
     test_engine(cfg)

@@ -108,5 +108,5 @@ class Tester(object):
             self.writer.add_scalar("Val ap", self.ap.avg, global_step=opt.OTHER.global_step)
 
 
-        return self.dist.avg,self.ap.avg
+        return self.dist.avg,self.auc.avg,self.ap.avg
 

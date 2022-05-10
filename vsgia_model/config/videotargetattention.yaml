@@ -16,7 +16,7 @@ MODEL:
   inout_branch: True
 
 TEST:
-  model_para: "../modelparas/vsgia_0epoch.pth.tar"
+  model_para: "../modelparas/model_videotargetattention.pt"
 
 OTHER:
 
