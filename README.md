@@ -15,7 +15,7 @@ The complete code will be released as soon as possible.
 - [ ] Training code
 
 
-# Instruction
+## Instruction
 1.Clone our repo and make directory dataset.
 
 ```bash
@@ -92,9 +92,10 @@ A required structure is :
         ├── environment.yaml
         └── README.md
         
-#Evaluation
+## Evaluation
 
-## Evaluation on GazeFollow dataset
+### Evaluation on GazeFollow dataset
+
 
 1.use gpu
 ```bash
@@ -110,7 +111,7 @@ python main.py --is_test (only use cpu)
 
 After the evaluation process, the program will reports the Average Distance, Minimum Distance and AUC.
 
-## Evaluation on VideoTargetAttention dataset
+### Evaluation on VideoTargetAttention dataset
 ```bash
 cd vsgia_model
 python main_vat.py --gpu --is_test (use gpu)
