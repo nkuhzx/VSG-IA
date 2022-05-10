@@ -16,7 +16,7 @@ The complete code will be released as soon as possible.
 
 
 ## Instruction
-1.Clone our repo and make directory dataset.
+1.Clone our repo and make directory "datasets".
 
 ```bash
 git clone https://github.com/nkuhzx/VSG-IA
@@ -25,11 +25,12 @@ mkdir datasets
 ```
 
 2.Download the GazeFollow/VideoTargetAttention dataset refer to [ejcgt's work](https://github.com/ejcgt/attention-target-detection) and download them to datasets directory.
+
+
+3.Download the preprocess file for test
 ```bash
 sh download_preprocess.sh
 ```
-
-3.Download the preprocess file for test
 
 4.Download the model weight for test
 ```bash
@@ -44,10 +45,13 @@ sh download_weight.sh
 conda env create -f environment.yml
 ```
 
-2)You can download the [dataset](https://drive.google.com/file/d/1Kf93_TfEDdQaeIP3gaxh0DkdP-_zmEu-/view?usp=sharing) and [model weights](https://drive.google.com/file/d/14Mko5h5nb0NPtIr8q6TzfLzySeijZSG-/view?usp=sharing) to your computer manually,
-then you need to unzip dataset.zip in the root directory and create a folder 'modelparas'. The folder 'modelparas' need to contain the model_gazefollow.pt file.
+2)We provide the [test part of the gazefollow dataset](https://drive.google.com/file/d/1X-J9WIE1m3GhRru7lR6ogLCB72cIvgq1/view?usp=sharing) for evaluation, you can download it to datasets directory
+and then unzip the gazefollow.zip in this directory.
 
-A required structure is :
+3)You can download [model weights for GazeFollow](https://drive.google.com/file/d/1vb1TMAz_y9Zy3ajud9mFAQWjmJVKfgo3/view?usp=sharing) to your computer manually and [model weights for VideoTargetAttention](https://drive.google.com/file/d/19o2z4Qp7mcG319KpBFg3F830_xlqx-n5/view?usp=sharing).
+The folder 'modelparas' need to contain the model_gazefollow.pt and model_videotargetattention.pt file.
+
+A required structure is:
 
         VSG-IA/
         ├── datasets/
@@ -112,6 +116,8 @@ python main.py --is_test (only use cpu)
 After the evaluation process, the program will reports the Average Distance, Minimum Distance and AUC.
 
 ### Evaluation on VideoTargetAttention dataset
+1.use gpu
+
 ```bash
 cd vsgia_model
 python main_vat.py --gpu --is_test (use gpu)
